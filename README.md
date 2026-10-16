@@ -1,92 +1,97 @@
-# UAV photovoltaic module instance-segmentation benchmark
+# PVDataset: UAV Photovoltaic Module Instance Segmentation
 
-**Release candidate — author review required before public release.**
+[English](README.md) | [简体中文](README_zh-CN.md)
 
-[中文说明](README_zh-CN.md)
+PVDataset provides data-processing tools and benchmark code for **individual photovoltaic (PV) module instance segmentation in UAV imagery**. It supports annotation preparation, supervised and text-prompt zero-shot evaluation, and inference on large images.
 
-This repository contains selected data-processing scripts and benchmark tools for
-UAV photovoltaic **module-level instance segmentation**. It is not a complete copy
-of MMDetection or SAM 3. Install those frameworks separately; see [setup](docs/SETUP.md).
+The dataset covers 22 PV sites in Ningbo, Shaoxing and Shenzhen, China. UAV oblique imagery captures variations in module scale, orientation, installation height, occlusion, illumination and dense arrangement. Each instance represents one physical PV module—not an internal cell, an internal subdivision or an entire array.
 
-Supervised baselines use **MMDetection 3.2.0**. Zero-shot evaluation uses the
-**official SAM 3 implementation**; its exact upstream commit is not recorded here
-yet. The framework directories contain project-specific configs/tools, not full
-framework distributions. Code defaults are the author's benchmark settings.
-SAM 3 uses the fixed text prompt `solar panel`, selected through preliminary
-comparison on 10 training images, with no model training or fine-tuning.
+## Dataset
 
-本目录为独立整理的开源候选版，原始工作目录未修改。尚未确定自编代码许可证，
-尚未补入去畸变脚本、最终数据 DOI、模型权重链接和服务器环境锁定文件。
-请先阅读 [发布前检查清单](docs/RELEASE_CHECKLIST.md)，不要直接视为已完成授权的正式开源版本。
+| Region | Training sites | Test sites | Evaluation role |
+|---|---:|---:|---|
+| Ningbo | 12 | 6 | Within-city evaluation |
+| Shaoxing | 0 | 3 | Cross-city generalization |
+| Shenzhen | 0 | 1 | Cross-city generalization |
 
-## Scope
+Data are partitioned by site. The planned data release consists of undistorted images and a COCO-format `instances.json` for each site. **Download links and a dataset DOI are not yet available.** Images, 3D models, camera parameters and model weights are not included in this code repository.
 
-- `preprocess/`: 3D polygon reprojection, SHP–ISAT–COCO conversion, direct SHP-to-COCO conversion, and image/COCO cropping. Reprojection requires private inputs not included here.
-- `mmdetection/configs/pv-detect/`: Mask R-CNN, HTC (without semantic branch), SOLOv2 and Mask2Former configurations.
-- `mmdetection/tools/`: training/testing entry points, large-image inference, station/city evaluation,
-  GeoJSON export and foreground/boundary pixel evaluation from instance predictions.
-- `sam3/`: the project's text-prompt zero-shot large-image evaluation script.
-- `third_party/`: retained upstream licence texts.
-- `provenance/`: selected source-file hashes, selection decisions and validation reports.
+Annotations are prepared through 3D module delineation, reprojection to individual images and manual review. Partially occluded modules retain their projected outlines; fully occluded modules are removed. COCO coordinates use an upper-left origin, with x increasing rightward and y downward.
 
-MMSegmentation, neural-network weights, image data, caches, build outputs, backup
-scripts, standalone debug runs and server-specific service launchers are not included.
+## Benchmarks
 
-## Data
+- **Supervised instance segmentation:** Mask R-CNN, HTC without a semantic branch, SOLOv2 and Mask2Former, using **MMDetection 3.2.0**.
+- **Text-prompt zero-shot instance segmentation:** the **official SAM 3 implementation**, without training or fine-tuning. The fixed prompt `solar panel` was selected through preliminary comparison on 10 training images and is held fixed during testing.
+- **Large-image evaluation:** tiled inference, boundary-instance merging, duplicate suppression and COCO bounding-box/mask AP evaluation, with station-level and aggregate results.
+- **Pixel-level evaluation:** foreground and boundary metrics computed from the union of predicted instance masks, rather than separately trained semantic segmentation models.
 
-Data download: **not yet published — add the final repository record/DOI here.**
-The planned release includes undistorted images and COCO `instances.json` per station.
-3D models, camera parameters and photogrammetry project files are not bundled.
-For the current evaluation scripts use:
+Code defaults are the author's benchmark settings. Command-line overrides should be recorded when reporting results. The exact SAM 3 upstream commit and a locked server environment have not yet been documented; final supervised-checkpoint distribution is under consideration.
+
+## Repository structure
+
+```text
+preprocess/                  Reprojection, annotation conversion and image/label cropping
+mmdetection/
+  configs/pv-detect/         Four supervised-model configurations
+  configs/_base_/           Required base configurations
+  tools/                    Training, inference, merging, export and evaluation
+sam3/                       Text-prompt zero-shot inference and evaluation
+tests/                      Synthetic preprocessing checks
+docs/                       Installation and usage documentation
+third_party/                Upstream license texts
+provenance/                 File inventory, source mapping and validation records
+```
+
+The `mmdetection/` and `sam3/` directories contain project-specific tools/configurations, **not complete framework distributions**. Install the upstream frameworks separately.
+
+## Getting started
+
+1. Follow [installation and path setup](docs/SETUP.md). Use separate environments for preprocessing, MMDetection and SAM 3.
+2. Prepare images and COCO annotations using the [preprocessing guide](docs/PREPROCESSING.md). The review workflow is **SHP → ISAT → manual review → COCO**; image and annotation cropping are provided separately.
+3. Set dataset paths in the model configurations, including HTC's own `data_root` setting.
+4. Follow the [benchmark guide](docs/BENCHMARK.md) for training, large-image inference, aggregation and pixel-level evaluation.
+
+Example layout used by the evaluation tools:
 
 ```text
 data/
   train-crop/009/{images/, instances.json}
-  ...
-  test-crop/013/{images/, instances.json}  # current local validation configuration
+  test-crop/013/{images/, instances.json}
   test/
     NingBo/013/{images/, instances.json}
-    ...
     ShaoXing/004/{images/, instances.json}
-    ...
     ShenZhen/031/{images/, instances.json}
 ```
 
-The planned station-level split is 12 Ningbo training sites, 6 Ningbo test sites,
-3 Shaoxing and 1 Shenzhen cross-city test sites. The final downloadable station
-manifest still needs confirmation against the published data. Do not infer split
-membership from a filename alone.
+This layout is illustrative, not a complete split manifest. The current validation configuration uses `test-crop/013`; see [setup notes](docs/SETUP.md) for the checkpoint-selection protocol requiring confirmation against the final experiments.
 
-One annotated object corresponds to one physical PV module, not an internal cell
-or an entire array. Record the partial-occlusion annotation convention in the data
-README. COCO coordinates are pixels, x rightward/y downward; inspection GeoJSON
-uses y=-y and is **not georeferenced longitude/latitude**.
+### Usage notes
 
-## Quick links
+- ISAT-to-COCO treats each annotation object as an instance; matching group IDs do not merge objects.
+- Reprojection requires external 3D annotations and compatible camera parameters. Users of the released 2D data need not repeat this step. The undistortion script is not currently included.
+- Inspection GeoJSON uses pixel coordinates with y negated, not geographic longitude/latitude.
+- The single-image GeoJSON tool defaults to mask NMS; the large-image evaluator defaults to bounding-box NMS. Select matching settings when comparing outputs.
+- The SAM 3 runner requires Linux cgroup/systemd support for its memory guard.
+- Use a new output directory when changing weights, data, prompts or postprocessing settings to avoid reusing incompatible cached results.
 
-- [Installation and paths](docs/SETUP.md)
-- [Data preparation commands](docs/PREPROCESSING.md)
-- [Benchmark commands and current defaults](docs/BENCHMARK.md)
-- [Release notes / exclusions](docs/RELEASE_NOTES.md)
-- [Items requiring author confirmation](docs/RELEASE_CHECKLIST.md)
-- [Third-party attribution](THIRD_PARTY_NOTICES.md)
+Preprocessing checks can be run from the repository root after installing the required dependencies:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Validation records in `provenance/validation.json` distinguish current checks from historical checks; they do not constitute a full GPU experiment reproduction.
 
 ## File integrity
 
-`SHA256SUMS.txt` records each release file's SHA-256 checksum (excluding itself,
-Git metadata and Python caches). It is optional for running the tools. Use it to
-detect changed or corrupted files; it is not proof of scientific correctness or
-publisher identity. Regenerate it after final edits. `provenance/release_inventory.json`
-lists the current payload files; validation records explicitly distinguish checks
-performed on this revision from historical results.
+`SHA256SUMS.txt` provides file checksums to detect changes or corruption. It is not required to run the code. `provenance/release_inventory.json` lists payload files; `source_manifest.json` records script provenance. Checksums exclude the checksum file itself, Git metadata and Python caches.
 
-## Licence and citation
+## License and citation
 
-Author-written additions: **licence pending author approval**. Public visibility
-alone does not grant an open-source licence. Do not replace upstream copyright
-notices with a project-wide licence.
+**A license for the author-written code has not yet been assigned.** Public availability does not by itself grant an open-source license. Third-party components remain subject to their respective licenses; see [third-party notices](THIRD_PARTY_NOTICES.md) and `third_party/`.
 
-MMDetection-derived files retain the upstream Apache-2.0 notices. SAM materials
-are governed by the separate SAM licence; no SAM model weights are redistributed.
-Data licensing is separate from code licensing. Manuscript citation and DOI are
-pending; no placeholder DOI should be treated as real.
+Dataset licensing will be specified with the data release. Publication details and a recommended citation will be added when available.
+
+## Questions and feedback
+
+Please use [GitHub Issues](https://github.com/plzhang1998/PVDataset/issues) to report problems or discuss the dataset and tools. Include the relevant command, framework versions and error message when reporting a technical issue.
