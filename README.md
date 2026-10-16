@@ -8,6 +8,13 @@ This repository contains selected data-processing scripts and benchmark tools fo
 UAV photovoltaic **module-level instance segmentation**. It is not a complete copy
 of MMDetection or SAM 3. Install those frameworks separately; see [setup](docs/SETUP.md).
 
+Supervised baselines use **MMDetection 3.2.0**. Zero-shot evaluation uses the
+**official SAM 3 implementation**; its exact upstream commit is not recorded here
+yet. The framework directories contain project-specific configs/tools, not full
+framework distributions. Code defaults are the author's benchmark settings.
+SAM 3 uses the fixed text prompt `solar panel`, selected through preliminary
+comparison on 10 training images, with no model training or fine-tuning.
+
 本目录为独立整理的开源候选版，原始工作目录未修改。尚未确定自编代码许可证，
 尚未补入去畸变脚本、最终数据 DOI、模型权重链接和服务器环境锁定文件。
 请先阅读 [发布前检查清单](docs/RELEASE_CHECKLIST.md)，不要直接视为已完成授权的正式开源版本。

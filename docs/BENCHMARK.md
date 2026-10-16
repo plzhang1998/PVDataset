@@ -1,7 +1,8 @@
 # Benchmark usage and current defaults
 
-These are the current local scripts/configs, not a guarantee they match every
-previously reported score. Do not silently retune them during release packaging.
+The author confirms that the code defaults are the settings used for the benchmark;
+the manuscript will also describe them. No parameters are retuned during packaging.
+Explicit command-line overrides take precedence over defaults and must be recorded.
 
 ## Supervised models (from mmdetection/)
 
@@ -69,5 +70,11 @@ maxDets=5000. It does not train or update model weights. `--stations` selects si
 require matching run manifests. Changing scripts/settings requires a new output
 directory. Linux cgroup/systemd memory protection remains enabled.
 
-Record the 10 training images used for prompt selection and the candidate prompts
-separately before publication. The main evaluation script is not a prompt-search tool.
+The fixed text prompt is `solar panel`. It was selected through preliminary
+comparison on 10 training images, then held fixed for test-set inference. No model
+training or fine-tuning is performed. This is zero-shot inference with respect to
+model weights, with task-specific prompt selection on training data; it is not a
+claim of prompt selection without access to any dataset examples.
+The main evaluation script is not a prompt-search tool. The image identifiers,
+candidate prompts and comparison criterion are not included in this release yet.
+Publication of the supervised models' final checkpoints is still under consideration.

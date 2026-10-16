@@ -7,7 +7,7 @@
     },
     {
       "path": "docs/BENCHMARK.md",
-      "bytes": 4119
+      "bytes": 4677
     },
     {
       "path": "docs/PREPROCESSING.md",
@@ -23,7 +23,7 @@
     },
     {
       "path": "docs/SETUP.md",
-      "bytes": 3045
+      "bytes": 3215
     },
     {
       "path": "mmdetection/configs/_base_/datasets/pv_concat_instance.py",
@@ -135,11 +135,11 @@
     },
     {
       "path": "README.md",
-      "bytes": 4186
+      "bytes": 4653
     },
     {
       "path": "README_zh-CN.md",
-      "bytes": 3210
+      "bytes": 3729
     },
     {
       "path": "requirements-preprocess.txt",

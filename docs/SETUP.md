@@ -14,16 +14,18 @@ On Windows, activate the Conda environment before running scripts so its
 `Library/bin` DLL search paths are present; invoking python.exe alone may fail
 when NumPy/GDAL native dependencies load.
 
-MMDetection tools require a compatible installed MMDetection, MMEngine, MMCV with
+The supervised experiments use MMDetection **3.2.0**. Tools require MMEngine, MMCV with
 compiled ops, PyTorch/torchvision, CUDA (for GPU inference), OpenCV and pycocotools.
 Start from the author's known working environment or the upstream installation
 guide: <https://github.com/open-mmlab/mmdetection/tree/v3.2.0>.
 This repository is an overlay of project files, not a standalone `mmdet` package.
-The locally modified framework core was not copied or certified identical to that
-tag. Compare against the actual training server before public release.
+Framework-core differences have not been audited against that tag. Compare
+against the actual training server before claiming exact reproducibility.
 
 SAM 3 requires its own installed upstream framework, its compatible Python/PyTorch
 environment and an officially obtained checkpoint. See <https://github.com/facebookresearch/sam3>.
+The experiments use the official SAM 3 implementation. The exact upstream commit
+has not yet been recorded; 'official' identifies the source, not an immutable version.
 Do not substitute a new upstream commit and assume identical benchmark results.
 
 ## Working directories and data roots
