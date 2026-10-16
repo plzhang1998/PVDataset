@@ -1,44 +1,46 @@
-# Candidate packaging notes — 2026-10-16
+# Repository notes and update history
 
-## What changed
+## Scope
 
-Only a separate copy was edited. Personal paths were replaced by portable example
-paths; preprocessing entry points gained explicit CLI arguments and new-output
-guards. Projection focal length/principal point must now be supplied explicitly,
-instead of silently using one station's calibration. Existing geometry, filtering,
-stitching, NMS and evaluation function implementations were retained.
+PVDataset provides project-specific preprocessing, model configurations and
+evaluation tools. MMDetection and SAM 3 are installed separately. Datasets,
+checkpoints, full framework source, 3D models and camera exports are not bundled.
+See [project status](RELEASE_CHECKLIST.md) for available resources and known
+reproducibility limitations.
 
-The four models come only from the author-designated `configs/pv-detect` directory.
-Their recursive `_base_` dependencies are included. CONFIG_MAP fallback paths now
-point to these configs. Original numeric training settings were not optimized.
-The distributed test shell wrapper now passes named --config/--checkpoint options
-to match the local test.py interface (instead of upstream positional arguments).
+## 2026-10-16 — Public documentation
 
-No `.git` history, images, weights, binary caches, build trees, old backups,
-MMSegmentation or full third-party frameworks were copied. Old documentation was
-not reused. Removed from this candidate only: the legacy `merge_coco_datasets.py`
-which offsets IDs by counts and is unsafe for arbitrary non-contiguous IDs.
-Original scripts remain available in the author's source directory.
+- Published code and bilingual project introductions on GitHub.
+- Documented MMDetection 3.2.0 and the official SAM 3 implementation.
+- Described the fixed `solar panel` prompt and its selection using 10 training images.
+- Organized documentation around installation, preprocessing, evaluation and
+  current resource availability.
+- Synchronized the file inventory and SHA-256 checksums with documentation updates.
 
-## Scope limitations
+These documentation updates do not change model configurations, inference
+defaults, annotation rules, merging algorithms or test source.
 
-This is a source/CLI packaging pass, not an algorithm correction or an experiment
-rerun. Legacy functions not imported by selected tools were omitted, not deleted
-from the original folder. See `provenance/selection.json` for decisions.
-The missing undistortion script will be added by the author. Camera-pose CSV
-preparation is external to the current candidate.
+## Code organization
 
-The source hash manifest uses paths relative to the original code directory and
-does not embed the author's workstation root. Local MMDetection/SAM3 cores may have
-changes beyond these entry points; audit against the training environment before
-claiming an official upstream installation will reproduce all results.
+- `preprocess/reproject.py` projects 3D polygons using externally supplied camera
+  parameters; focal length and principal point are explicit command-line inputs.
+- `preprocess/shp2coco.py` provides direct conversion of reviewed SHP annotations.
+- `preprocess/shp2isat.py` and `preprocess/isat2coco.py` support the manual review workflow.
+- Four supervised-model configurations and their required base configurations
+  are included under `mmdetection/configs/`.
+- Training and evaluation entry points use portable example paths. The distributed
+  test wrapper passes named `--config` and `--checkpoint` options to this repository's
+  `test.py` interface.
+- Camera-export conversion is external to this repository. The undistortion script
+  is not currently included.
 
-## Author cleanup and documentation synchronization
+## Traceability
 
-The author consolidated projection into `preprocess/reproject.py`, renamed the
-direct SHP converter to `preprocess/shp2coco.py`, and removed unused conversion
-helpers and the separate data-generation directory. Documentation and release
-manifests now follow the current tree. Test source is maintained by the author
-and was not edited during this synchronization. Historical validation is retained
-as historical evidence only; full functional tests were not rerun in this pass.
-Any ZIP created before this cleanup is an older snapshot, not the current release.
+`provenance/source_manifest.json` maps included source files to their repository
+paths. `selection.json` records scope decisions, and `validation.json` separates
+historical checks from current checks. Historical paths in these records describe
+earlier source layouts, not commands for the current repository.
+
+`SHA256SUMS.txt` and `provenance/release_inventory.json` describe the current file
+contents. An archive made from an older commit remains an older snapshot; obtain
+the desired Git commit when comparing versions or reporting experiments.

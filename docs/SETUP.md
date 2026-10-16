@@ -19,8 +19,8 @@ compiled ops, PyTorch/torchvision, CUDA (for GPU inference), OpenCV and pycocoto
 Start from the author's known working environment or the upstream installation
 guide: <https://github.com/open-mmlab/mmdetection/tree/v3.2.0>.
 This repository is an overlay of project files, not a standalone `mmdet` package.
-Framework-core differences have not been audited against that tag. Compare
-against the actual training server before claiming exact reproducibility.
+Framework-core differences have not been audited against that tag, and a locked
+server environment is not yet provided. See [project status](RELEASE_CHECKLIST.md).
 
 SAM 3 requires its own installed upstream framework, its compatible Python/PyTorch
 environment and an officially obtained checkpoint. See <https://github.com/facebookresearch/sam3>.
@@ -37,10 +37,11 @@ with a trailing slash. The HTC config also has a `data_root` assignment: set it 
 the same directory. Merely overriding a top-level `data_root` on the CLI does not
 necessarily rewrite already-created nested dataset dictionaries.
 
-The current dataset base preserves the source configuration: training uses the
-12 station subdatasets and validation uses `test-crop/013`. This choice has not
-been corrected or endorsed by packaging. Check `docs/RELEASE_CHECKLIST.md` before
-describing held-out test results in a manuscript.
+The current dataset base uses 12 training-site subdatasets and `test-crop/013`
+for validation. Since site 013 is also part of the intended Ningbo test split,
+the checkpoint-selection protocol requires confirmation against the final
+experiments. These configurations should not be interpreted as evidence of an
+independent validation split. See [evaluation status](RELEASE_CHECKLIST.md).
 
 Always pass checkpoint, input and output paths explicitly in evaluation commands.
 Use a NEW output folder when any data, weights, prompt or postprocessing setting
@@ -49,7 +50,7 @@ these inputs; an old output directory can silently reuse previous metrics.
 
 ## SAM 3 platform restriction
 
-The preserved SAM runner uses Linux `/proc`, cgroup v2 and `systemd-run --user` to
+The SAM 3 runner uses Linux `/proc`, cgroup v2 and `systemd-run --user` to
 enforce a RAM limit (default 64 GiB). It is not a Windows-native runner and may not
-run in containers without this support. Packaging did not remove this safety guard.
-Full GPU inference must be validated in the author's server environment.
+run in containers without this support. Confirm that these facilities are available
+before launching inference. Synthetic preprocessing checks do not test GPU inference.

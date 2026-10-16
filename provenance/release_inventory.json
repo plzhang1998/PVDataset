@@ -7,23 +7,23 @@
     },
     {
       "path": "docs/BENCHMARK.md",
-      "bytes": 4677
+      "bytes": 4629
     },
     {
       "path": "docs/PREPROCESSING.md",
-      "bytes": 3658
+      "bytes": 3782
     },
     {
       "path": "docs/RELEASE_CHECKLIST.md",
-      "bytes": 1768
+      "bytes": 3070
     },
     {
       "path": "docs/RELEASE_NOTES.md",
-      "bytes": 2568
+      "bytes": 2338
     },
     {
       "path": "docs/SETUP.md",
-      "bytes": 3215
+      "bytes": 3331
     },
     {
       "path": "mmdetection/configs/_base_/datasets/pv_concat_instance.py",

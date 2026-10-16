@@ -1,7 +1,7 @@
 # Benchmark usage and current defaults
 
 The author confirms that the code defaults are the settings used for the benchmark;
-the manuscript will also describe them. No parameters are retuned during packaging.
+the manuscript will also describe them.
 Explicit command-line overrides take precedence over defaults and must be recorded.
 
 ## Supervised models (from mmdetection/)
@@ -63,7 +63,7 @@ semantic-model experiments.
 python big_image_inference_eval_sam3.py --checkpoint ../checkpoints/sam3.pt --test-root ../data/test --out-dir ../outputs/sam3_solar_panel --prompt "solar panel"
 ```
 
-The preserved runner uses a fixed text prompt, BF16 CUDA inference, tile batch=1,
+The SAM 3 runner uses a fixed text prompt, BF16 CUDA inference, tile batch=1,
 native processor resolution 1008, default score=0.5, max_per_patch=100 and
 maxDets=5000. It does not train or update model weights. `--stations` selects sites;
 `--limit-images 2` is a smoke run, not full evaluation. `--resume` and `--eval-only`
