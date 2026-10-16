@@ -1,0 +1,10 @@
+# Dependency names, NOT a lockfile of the author's server environment.
+numpy
+Pillow
+shapely>=2
+pycocotools
+tqdm
+opencv-python
+pandas
+numba
+# Install GDAL/osgeo using a compatible GIS environment (see docs/SETUP.md).

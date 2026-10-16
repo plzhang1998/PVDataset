@@ -1,0 +1,28 @@
+{
+  "included": "Selected project scripts, 4 pv-detect configs and recursive bases; upstream licenses.",
+  "excluded": {
+    "mmsegmentation": "Not part of the current paper, confirmed by author",
+    "framework_source": "Install external MMDetection/SAM3; local core differences not yet audited",
+    "__pycache__, build, *.egg-info, backups, checkpoints, assets, test outputs": "Generated or third-party bulk files",
+    "preprocess/convert_coco.py": "Legacy alternative; optimized version selected",
+    "preprocess/convert_shp.py": "Legacy alternative; optimized version selected",
+    "preprocess/basic_func.py, data_process.py, convert_label.py, rasterize.py, vis_shp.py": "Not required by selected dependency chain; originals preserved",
+    "preprocess/merge_coco_datasets.py": "Legacy count-offset merge can collide for non-contiguous IDs; use station aggregation in evaluation instead",
+    "debug_eval.py, *_no_stitch.py, memory watch and server wrappers": "Debug/ablation/server-specific utilities",
+    "camera-export parser and COCO inspection helpers": "Removed by author; pose CSV prepared externally; primary review path is SHP to ISAT to COCO"
+  },
+  "pending": [
+    "Undistortion code supplied separately by author",
+    "Author code license",
+    "Exact server framework revisions and environment",
+    "Confirm validation/checkpoint selection protocol"
+  ],
+  "current_preprocessing": [
+    "crop.py",
+    "crop_coco.py",
+    "isat2coco.py",
+    "reproject.py",
+    "shp2coco.py",
+    "shp2isat.py"
+  ]
+}

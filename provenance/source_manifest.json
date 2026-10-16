@@ -1,0 +1,163 @@
+[
+  {
+    "source": "preprocess/crop.py",
+    "destination": "preprocess/crop.py",
+    "source_sha256": "ae2af2859d07bc438eb84502f460f3b36353431a7ebd55c9b0f8e78c8aabd2a5",
+    "release_sha256": "bd633051b2e8039c76289bd3cfe5977cfb879442c935afbd863eded7ff798a3b",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "preprocess/crop_coco.py",
+    "destination": "preprocess/crop_coco.py",
+    "source_sha256": "9deb9d601fe323a5063e47697bdd9c7b5dd692192e78519e1b229d67f8ed3357",
+    "release_sha256": "839f74ad8e30f57ea910bf7341d5605cca9368ab25cd3688750a26c651a93fa4",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "preprocess/shp2isat.py",
+    "destination": "preprocess/shp2isat.py",
+    "source_sha256": "aeff11b45a94ecccb303e24432e602def3acdd20002a8a2cbd0d240b6265cea4",
+    "release_sha256": "9e433cfd1a7abceb38a6d66969f7c7765de0e2f9bc8a35e0a2ea9b5b59f13c24",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "preprocess/isat2coco.py",
+    "destination": "preprocess/isat2coco.py",
+    "source_sha256": "3a13488166bc2c9cb44a699bb93f888f4992bbd8aa1cd49ec12dfb833e9f73ef",
+    "release_sha256": "3374a4c27652525c1320eab394dbc3403ffa52e0268e37ed4a53a38e7b31efcc",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "preprocess/convert_coco_optimized.py",
+    "destination": "preprocess/shp2coco.py",
+    "source_sha256": "2714f909b03d82caa08aa66b7d7aa064eb3191a05cca4c02c042a927daa6de20",
+    "release_sha256": "a6810f4f450224d0af282b572b747746c0e40fa83191e3225301d1f948e236e9",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md; renamed/consolidated by author; current destination hash refreshed"
+  },
+  {
+    "source": "preprocess/convert_shp_optimized.py",
+    "destination": "preprocess/reproject.py",
+    "source_sha256": "c307dbbb6bcbbf1a39139ac3edac9aad7c719694e31722e00b644b95089d5078",
+    "release_sha256": "7b98cdd9adf071aad5cf738fe8227ccf3f21777ec3be3d7fd2791f2fbe4f7304",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md; renamed/consolidated by author; current destination hash refreshed"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/train.py",
+    "destination": "mmdetection/tools/train.py",
+    "source_sha256": "d05980b97ee906e5df84a99af6eb05e0d7ed260a21cb9a51ddf5731b70f16e12",
+    "release_sha256": "ae80016e173e8034c5d1c84ab5801bf3466a94381b0ffea7c6d28219d4ac0676",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/test.py",
+    "destination": "mmdetection/tools/test.py",
+    "source_sha256": "d405b4e98f95fd0c5b61fd7b019ea7761a66929fe3de44ef38a49de2e338b4b4",
+    "release_sha256": "332096941a1cce36c55193601270663dc1c9a5f1aff4363b2d501a8553c04aba",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/test_per_subset.py",
+    "destination": "mmdetection/tools/test_per_subset.py",
+    "source_sha256": "ec2e9d419226625567204b695413c79bedf0b67f21675aed8b221eb885c36cf3",
+    "release_sha256": "ec2e9d419226625567204b695413c79bedf0b67f21675aed8b221eb885c36cf3",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/big_image_inference_eval.py",
+    "destination": "mmdetection/tools/big_image_inference_eval.py",
+    "source_sha256": "c6fda6ea94a6a3ec5e4d6239b1ec49bfa32411e9ffd4da294835e39ebba55f26",
+    "release_sha256": "9d2a32c17a723b0cdee15a77f1655b5e25b4576cadda54a1978f356255944bc5",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/big_image_inference_geojson.py",
+    "destination": "mmdetection/tools/big_image_inference_geojson.py",
+    "source_sha256": "87cc1caa5864129d266da7217e5344e277eb66d867fbb9514434b71316bd134e",
+    "release_sha256": "27fef22129c2dcf815bfd76c0cc3a08be06ae90b967df476159c7125f56af821",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/coco_predictions_to_binary_masks.py",
+    "destination": "mmdetection/tools/coco_predictions_to_binary_masks.py",
+    "source_sha256": "43cf3b64e440a309412b8a77be64665ab31d27f9f884c6fd885d664e27bc84c2",
+    "release_sha256": "b8b342f9c5fa45333def5476d87705569977763ff50f0456dc2161b39d5415fe",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/segmentation_evaluator.py",
+    "destination": "mmdetection/tools/segmentation_evaluator.py",
+    "source_sha256": "d9a0fe4b4ce8528319271514a9b1e6eafb1387f10cc9ea06a6f084a5346a9dd4",
+    "release_sha256": "d9a0fe4b4ce8528319271514a9b1e6eafb1387f10cc9ea06a6f084a5346a9dd4",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/tools/pixel_eval_batch.py",
+    "destination": "mmdetection/tools/pixel_eval_batch.py",
+    "source_sha256": "1c8e95e0e061e076f19ccf7105014bcf19421f5e5d966d6a93c926f928a8d25d",
+    "release_sha256": "aa82f6d36c171d1e02533f0ae3f8db74003ed0533751f98374d519e3b3e45f19",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "sam3-main/big_image_inference_eval_sam3.py",
+    "destination": "sam3/big_image_inference_eval_sam3.py",
+    "source_sha256": "ac378d3b2a77f935d8c3aed9c1649a0cde1df6501a2bb7db50caba88dadbec89",
+    "release_sha256": "018291f0f92ae96166e26ab548514790d513d10d5dccdbb22d3437977706122e",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/pv-detect/htc-without-semantic_r50_fpn_1x_pv_panel.py",
+    "destination": "mmdetection/configs/pv-detect/htc-without-semantic_r50_fpn_1x_pv_panel.py",
+    "source_sha256": "ab56d21eccefaaed3f35995dad5e888951be1bcbd9797ad35414c8733e527972",
+    "release_sha256": "e660c3c727ada4cf2ea514c7663c11ad20081a0186a46f99c797a1c023b9bca4",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/_base_/datasets/pv_concat_instance.py",
+    "destination": "mmdetection/configs/_base_/datasets/pv_concat_instance.py",
+    "source_sha256": "8453554c2af1f0eaa6fbe21435f362c1e8836466eea7ae347b14e07b0654f7f4",
+    "release_sha256": "9a1bd8daa2e0845e1c18d9310f04e2326496eda227e7876527542671feac131b",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/_base_/schedules/schedule_1x.py",
+    "destination": "mmdetection/configs/_base_/schedules/schedule_1x.py",
+    "source_sha256": "29c25800f6a955f137dcd301f559deff3dc37363ae31cbdfedd1df7665f6f23e",
+    "release_sha256": "29c25800f6a955f137dcd301f559deff3dc37363ae31cbdfedd1df7665f6f23e",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/_base_/default_runtime.py",
+    "destination": "mmdetection/configs/_base_/default_runtime.py",
+    "source_sha256": "4a327e507a1d41928dac65217166b2c6dd3365663e6116512ac00b4a59c6153f",
+    "release_sha256": "4a327e507a1d41928dac65217166b2c6dd3365663e6116512ac00b4a59c6153f",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/pv-detect/mask-rcnn_r50_fpn_1x_pv_panel.py",
+    "destination": "mmdetection/configs/pv-detect/mask-rcnn_r50_fpn_1x_pv_panel.py",
+    "source_sha256": "ba68963619d93444c142d40755d64bcbe4f17bddcd1e0cd70adbe70228b03489",
+    "release_sha256": "c7d31e5a84dfb091a347ed83fbf79c450f41f7149b6ea5549a9c1246343a17e8",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/_base_/models/mask-rcnn_r50_fpn.py",
+    "destination": "mmdetection/configs/_base_/models/mask-rcnn_r50_fpn.py",
+    "source_sha256": "0cbf881d9f07ac0ec9f211a9b28313dac6bceb65f6d494c268f92621100e93a0",
+    "release_sha256": "0cbf881d9f07ac0ec9f211a9b28313dac6bceb65f6d494c268f92621100e93a0",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/pv-detect/mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+    "destination": "mmdetection/configs/pv-detect/mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+    "source_sha256": "0068386088653b4819b41ff15832f4c26f0fddc152bd57fad7dc7df3bd26851b",
+    "release_sha256": "0068386088653b4819b41ff15832f4c26f0fddc152bd57fad7dc7df3bd26851b",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  },
+  {
+    "source": "mmdetection-3.2.0/configs/pv-detect/solov2_r50_fpn_1x_pv_panel.py",
+    "destination": "mmdetection/configs/pv-detect/solov2_r50_fpn_1x_pv_panel.py",
+    "source_sha256": "9127085b9c9c3579eea7d42ad21ddd1a6243f83f88243ee92f82f99527bfe17c",
+    "release_sha256": "9127085b9c9c3579eea7d42ad21ddd1a6243f83f88243ee92f82f99527bfe17c",
+    "changes": "CLI/path portability only; see docs/RELEASE_NOTES.md"
+  }
+]

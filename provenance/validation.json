@@ -1,0 +1,222 @@
+{
+  "revision_note": "Documentation/manifest sync after author cleanup, 2026-10-16",
+  "current_checks": {
+    "syntax_passed": [
+      "mmdetection/configs/_base_/datasets/pv_concat_instance.py",
+      "mmdetection/configs/_base_/default_runtime.py",
+      "mmdetection/configs/_base_/models/mask-rcnn_r50_fpn.py",
+      "mmdetection/configs/_base_/schedules/schedule_1x.py",
+      "mmdetection/configs/pv-detect/htc-without-semantic_r50_fpn_1x_pv_panel.py",
+      "mmdetection/configs/pv-detect/mask-rcnn_r50_fpn_1x_pv_panel.py",
+      "mmdetection/configs/pv-detect/mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+      "mmdetection/configs/pv-detect/solov2_r50_fpn_1x_pv_panel.py",
+      "mmdetection/tools/big_image_inference_eval.py",
+      "mmdetection/tools/big_image_inference_geojson.py",
+      "mmdetection/tools/coco_predictions_to_binary_masks.py",
+      "mmdetection/tools/pixel_eval_batch.py",
+      "mmdetection/tools/segmentation_evaluator.py",
+      "mmdetection/tools/test.py",
+      "mmdetection/tools/test_per_subset.py",
+      "mmdetection/tools/train.py",
+      "preprocess/crop.py",
+      "preprocess/crop_coco.py",
+      "preprocess/isat2coco.py",
+      "preprocess/reproject.py",
+      "preprocess/shp2coco.py",
+      "preprocess/shp2isat.py",
+      "sam3/big_image_inference_eval_sam3.py",
+      "tests/test_preprocessing.py"
+    ],
+    "functional_tests": "Not rerun; author maintains tests",
+    "gpu_training_and_inference": "Not run"
+  },
+  "historical_validation_before_cleanup": {
+    "syntax": [
+      "data_generation/bba2csv.py",
+      "data_generation/convert_shp_optimized.py",
+      "mmdetection/configs/pv-detect/htc-without-semantic_r50_fpn_1x_pv_panel.py",
+      "mmdetection/configs/pv-detect/mask-rcnn_r50_fpn_1x_pv_panel.py",
+      "mmdetection/configs/pv-detect/mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+      "mmdetection/configs/pv-detect/solov2_r50_fpn_1x_pv_panel.py",
+      "mmdetection/configs/_base_/default_runtime.py",
+      "mmdetection/configs/_base_/datasets/pv_concat_instance.py",
+      "mmdetection/configs/_base_/models/mask-rcnn_r50_fpn.py",
+      "mmdetection/configs/_base_/schedules/schedule_1x.py",
+      "mmdetection/tools/big_image_inference_eval.py",
+      "mmdetection/tools/big_image_inference_geojson.py",
+      "mmdetection/tools/coco_predictions_to_binary_masks.py",
+      "mmdetection/tools/pixel_eval_batch.py",
+      "mmdetection/tools/segmentation_evaluator.py",
+      "mmdetection/tools/test.py",
+      "mmdetection/tools/test_per_subset.py",
+      "mmdetection/tools/train.py",
+      "preprocess/coco2isat.py",
+      "preprocess/coco2shp.py",
+      "preprocess/convert_coco_optimized.py",
+      "preprocess/crop.py",
+      "preprocess/crop_coco.py",
+      "preprocess/isat2coco.py",
+      "preprocess/shp2isat.py",
+      "sam3/big_image_inference_eval_sam3.py",
+      "tests/test_preprocessing.py"
+    ],
+    "core_function_changes": [
+      {
+        "file": "mmdetection/tools/train.py",
+        "function": "parse_args"
+      },
+      {
+        "file": "mmdetection/tools/test.py",
+        "function": "parse_args"
+      },
+      {
+        "file": "mmdetection/tools/pixel_eval_batch.py",
+        "function": "main"
+      },
+      {
+        "file": "sam3/big_image_inference_eval_sam3.py",
+        "function": "main_sam"
+      }
+    ],
+    "source_unchanged": true,
+    "cli": [
+      {
+        "file": "preprocess/crop.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/crop_coco.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/shp2isat.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/isat2coco.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/convert_coco_optimized.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/coco2isat.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "preprocess/coco2shp.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "data_generation/convert_shp_optimized.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "data_generation/bba2csv.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/train.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/test.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/test_per_subset.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/big_image_inference_eval.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/big_image_inference_geojson.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/coco_predictions_to_binary_masks.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/segmentation_evaluator.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "mmdetection/tools/pixel_eval_batch.py",
+        "returncode": 0,
+        "error_tail": ""
+      },
+      {
+        "file": "sam3/big_image_inference_eval_sam3.py",
+        "returncode": 0,
+        "error_tail": ""
+      }
+    ],
+    "configs": [
+      {
+        "file": "htc-without-semantic_r50_fpn_1x_pv_panel.py",
+        "loaded": true,
+        "model": "HybridTaskCascade",
+        "batch_size": 8,
+        "training_stations": 12
+      },
+      {
+        "file": "mask-rcnn_r50_fpn_1x_pv_panel.py",
+        "loaded": true,
+        "model": "MaskRCNN",
+        "batch_size": 8,
+        "training_stations": 12
+      },
+      {
+        "file": "mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+        "loaded": true,
+        "model": "Mask2Former",
+        "batch_size": 8,
+        "training_stations": 12
+      },
+      {
+        "file": "solov2_r50_fpn_1x_pv_panel.py",
+        "loaded": true,
+        "model": "SOLOv2",
+        "batch_size": 8,
+        "training_stations": 12
+      }
+    ],
+    "security_findings": [],
+    "synthetic_tests": {
+      "returncode": 0,
+      "stdout": "完成：4 张已有切片，4 个实例。\n汇总：缺失切片 0，额外旧切片 0，无效源实例 0，零像素 0，框宽/高 < 5 过滤 0。\nCOCO：<TEST_TMP>\\tmpx43x0it5\\output.json\n报告：<TEST_TMP>\\tmpx43x0it5\\output.report.json\n完成：1 张影像，2 个实例，0 张空标注影像。\nCOCO：<TEST_TMP>\\tmp7s5kr6t_\\out.json\n统计：<TEST_TMP>\\tmp7s5kr6t_\\out.report.json\n汇总提醒：跳过自交/退化或坐标无效多边形 1 个（涉及 1 张影像）；另跳过零像素实例 0 个。框宽或高小于 5 像素过滤 1 个。其中 0 张影像因所有轮廓无效而输出空标注。详情见 report。\n[1/1] 2 objects verified\nDone: 1 images, 2 instances -> <TEST_TMP>\\tmp7s5kr6t_\\isat_roundtrip\n完成：1 张影像，2 个实例，0 张空标注影像。\nCOCO：<TEST_TMP>\\tmp7s5kr6t_\\roundtrip.json\n统计：<TEST_TMP>\\tmp7s5kr6t_\\roundtrip.report.json\n汇总提醒：跳过自交/退化或坐标无效多边形 0 个（涉及 0 张影像）；另跳过零像素实例 0 个。框宽或高小于 5 像素过滤 0 个。其中 0 张影像因所有轮廓无效而输出空标注。详情见 report。\n",
+      "stderr": "test_image_and_annotation_windows (test_preprocessing.ReleaseTests) ... \n裁切 COCO（复用影像）:   0%|          | 0/1 [00:00<?, ?image/s]\n裁切 COCO（复用影像）: 100%|██████████| 1/1 [00:00<00:00, 250.18image/s]\nok\ntest_projection_center_and_y_flip (test_preprocessing.ReleaseTests) ... ok\ntest_same_group_is_not_merged_and_small_invalid_filtered (test_preprocessing.ReleaseTests) ... \nISAT -> COCO:   0%|          | 0/1 [00:00<?, ?image/s]\nISAT -> COCO: 100%|██████████| 1/1 [00:00<00:00, 499.98image/s]\n\nISAT -> COCO:   0%|          | 0/1 [00:00<?, ?image/s]\nISAT -> COCO: 100%|██████████| 1/1 [00:00<00:00, 999.36image/s]\nok\ntest_shp_geometry_conversion_flip_and_threshold (test_preprocessing.ReleaseTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.135s\n\nOK\n"
+    },
+    "limitations": [
+      "No real training or GPU inference run",
+      "CLI may use the existing local MMDetection install, not a fresh upstream environment",
+      "SAM 3 Linux memory guard not executed by --help",
+      "No author code licence chosen"
+    ],
+    "synthetic_test_initial_attempt": {
+      "returncode": 3228369023,
+      "note": "Direct Conda executable without Library/bin failed in native dependency loading; rerun with environment DLL path."
+    },
+    "status": "PASS: syntax, 18 CLI entry points, 4 configs and 4 synthetic regression tests; no full GPU experiment"
+  }
+}

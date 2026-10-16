@@ -1,0 +1,169 @@
+{
+  "scope": "Current payload; excludes this inventory, SHA256SUMS.txt, Git metadata and Python caches",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 245
+    },
+    {
+      "path": "docs/BENCHMARK.md",
+      "bytes": 4119
+    },
+    {
+      "path": "docs/PREPROCESSING.md",
+      "bytes": 3658
+    },
+    {
+      "path": "docs/RELEASE_CHECKLIST.md",
+      "bytes": 1768
+    },
+    {
+      "path": "docs/RELEASE_NOTES.md",
+      "bytes": 2568
+    },
+    {
+      "path": "docs/SETUP.md",
+      "bytes": 3045
+    },
+    {
+      "path": "mmdetection/configs/_base_/datasets/pv_concat_instance.py",
+      "bytes": 7988
+    },
+    {
+      "path": "mmdetection/configs/_base_/default_runtime.py",
+      "bytes": 854
+    },
+    {
+      "path": "mmdetection/configs/_base_/models/mask-rcnn_r50_fpn.py",
+      "bytes": 4273
+    },
+    {
+      "path": "mmdetection/configs/_base_/schedules/schedule_1x.py",
+      "bytes": 814
+    },
+    {
+      "path": "mmdetection/configs/pv-detect/htc-without-semantic_r50_fpn_1x_pv_panel.py",
+      "bytes": 10105
+    },
+    {
+      "path": "mmdetection/configs/pv-detect/mask-rcnn_r50_fpn_1x_pv_panel.py",
+      "bytes": 6807
+    },
+    {
+      "path": "mmdetection/configs/pv-detect/mask2former_r50_8xb2-lsj-50e_pv_panel.py",
+      "bytes": 7445
+    },
+    {
+      "path": "mmdetection/configs/pv-detect/solov2_r50_fpn_1x_pv_panel.py",
+      "bytes": 3924
+    },
+    {
+      "path": "mmdetection/tools/big_image_inference_eval.py",
+      "bytes": 73621
+    },
+    {
+      "path": "mmdetection/tools/big_image_inference_geojson.py",
+      "bytes": 14258
+    },
+    {
+      "path": "mmdetection/tools/coco_predictions_to_binary_masks.py",
+      "bytes": 7656
+    },
+    {
+      "path": "mmdetection/tools/dist_test.sh",
+      "bytes": 505
+    },
+    {
+      "path": "mmdetection/tools/dist_train.sh",
+      "bytes": 442
+    },
+    {
+      "path": "mmdetection/tools/pixel_eval_batch.py",
+      "bytes": 15303
+    },
+    {
+      "path": "mmdetection/tools/segmentation_evaluator.py",
+      "bytes": 11221
+    },
+    {
+      "path": "mmdetection/tools/test.py",
+      "bytes": 5916
+    },
+    {
+      "path": "mmdetection/tools/test_per_subset.py",
+      "bytes": 15492
+    },
+    {
+      "path": "mmdetection/tools/train.py",
+      "bytes": 4200
+    },
+    {
+      "path": "preprocess/crop.py",
+      "bytes": 10103
+    },
+    {
+      "path": "preprocess/crop_coco.py",
+      "bytes": 17075
+    },
+    {
+      "path": "preprocess/isat2coco.py",
+      "bytes": 14994
+    },
+    {
+      "path": "preprocess/reproject.py",
+      "bytes": 19121
+    },
+    {
+      "path": "preprocess/shp2coco.py",
+      "bytes": 17364
+    },
+    {
+      "path": "preprocess/shp2isat.py",
+      "bytes": 8930
+    },
+    {
+      "path": "provenance/selection.json",
+      "bytes": 1555
+    },
+    {
+      "path": "provenance/source_manifest.json",
+      "bytes": 9210
+    },
+    {
+      "path": "provenance/validation.json",
+      "bytes": 9294
+    },
+    {
+      "path": "README.md",
+      "bytes": 4186
+    },
+    {
+      "path": "README_zh-CN.md",
+      "bytes": 3210
+    },
+    {
+      "path": "requirements-preprocess.txt",
+      "bytes": 216
+    },
+    {
+      "path": "sam3/big_image_inference_eval_sam3.py",
+      "bytes": 75250
+    },
+    {
+      "path": "tests/test_preprocessing.py",
+      "bytes": 4361
+    },
+    {
+      "path": "third_party/MMDetection-LICENSE",
+      "bytes": 11398
+    },
+    {
+      "path": "third_party/SAM3-LICENSE",
+      "bytes": 7353
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1144
+    }
+  ]
+}
